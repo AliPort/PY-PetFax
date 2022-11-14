@@ -1,3 +1,4 @@
+#factory 
 from flask import Flask
 
 def create_app():
@@ -6,5 +7,9 @@ def create_app():
     @app.route('/')
     def index(): 
         return 'Hello, PetFax!'
-    
+
+    from . import pet 
+    app.register_blueprint(pet.bp)
+
+
     return app
